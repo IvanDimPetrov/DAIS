@@ -1,0 +1,39 @@
+﻿@model List<Vote>
+@{
+    ViewBag.Title = "Suspended Votes";
+}
+
+
+<div class="card">
+    <div class="card-header text-center">
+        <h3>All votes that are suspended(terminated).Look in details for a statistic.</h3>
+    </div>
+
+    <div class="card-body">
+        <ul class="list-group">
+            @if (Model.Count == 0)
+            {
+                <li class="list-group-item m-1">No available votes</li>
+            }
+            else
+            {
+                @foreach (var vote in Model)
+                {
+                    <li class="list-group-item m-1">
+                        <div class="d-inline-block">
+                            <h5>Birthday Guy: @vote.ReceiverName </h5>
+                            <h6>Started By: @vote.OwnerName</h6>
+                        </div>
+                        <div class="d-inline-block float-right">
+                            <a asp-controller="Votes" asp-action="Details" asp-route-id="@vote.Id" class="btn btn-primary">Details</a>
+                        </div>
+                        
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+
+

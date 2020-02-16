@@ -1,0 +1,40 @@
+﻿@model CreateVoteViewModel;
+
+@{
+    ViewBag.Title = "Create Vote";
+
+}
+
+
+
+<div class="card">
+
+    <div class="card-header">
+        <h3>Create Vote</h3>
+    </div>
+
+    <div class="card-body">
+
+        <form method="post" asp-controller="Votes" asp-action="Create">
+            <div class="form-group">
+
+                <label asp-for="Reciever" class="control-label"></label>
+                <select asp-for="Reciever" class="form-control"
+                        asp-items="@Model.EmployeeList">
+                    <option value="">-- Select --</option>
+                </select>
+
+                <span asp-validation-for="Reciever" class="text-danger"></span>
+                <input type="hidden" asp-for="Owner" />
+
+                <input type="hidden" asp-for="EmployeeList"/>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create</button>
+
+        </form>
+
+    </div>
+
+</div>

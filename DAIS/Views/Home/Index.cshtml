@@ -1,0 +1,20 @@
+﻿@model List<Employee>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<ul class="list-group">
+    @foreach (var empl in Model)
+    {
+        <li class="list-group-item m-1">
+            <div class="d-inline-block">
+                <h5>@empl.Name: @empl.BirthDate.ToString("dd MMMMMMMMMMMMMMM yyyy")</h5>
+            </div>
+
+            <div class="d-inline-block float-right">
+                <h6>User name: @empl.UserName  Password: @empl.Password</h6>
+            </div>
+        </li>
+    }
+</ul>

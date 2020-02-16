@@ -1,0 +1,55 @@
+﻿@model DetailsVoteViewModel
+@{
+    ViewBag.Title = "Details for a vote";
+}
+
+<div class="text-center">
+    <a class="btn btn-primary d-inline-block float-left" asp-controller="Votes" asp-action="SuspendedVotes">Back</a>
+    <h3 class="d-inline-block">Birthday Guy: @Model.ReceiverName</h3>
+</div>
+
+@if (Model.GiftsStatistic.Count == 0 && Model.VotingDetails.Count == 0)
+{
+    <h3 class="text-center text-danger">No votes for this employee</h3>
+}
+else
+{
+    <div class="d-md-flex h-md-100 align-items-center">
+
+        <div class="col-md-6 p-0 bg-indigo h-md-100">
+            <h3 class="modal-header">Voted User</h3>
+            <ul class="list-group">
+
+                @foreach (var row in Model.VotingDetails)
+                {
+                    <li class="list-group-item m-1">
+                        @row.Value[0]: @row.Value[1]
+                    </li>
+
+                }
+
+            </ul>
+        </div>
+
+        <div class="col-md-6 p-0 bg-indigo h-md-100">
+            <h3 class="modal-header">Statistic for gifts</h3>
+            <ul class="list-group">
+
+                @foreach (var row in Model.GiftsStatistic)
+                {
+                    <li class="list-group-item m-1">
+                        @row.Key : @row.Value
+                    </li>
+
+                }
+
+            </ul>
+        </div>
+    </div>
+}
+
+
+
+
+
+
