@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="d-inline-block float-right">
-                            <a asp-controller="Votes" asp-action="Voting" asp-route-id="@vote.Id" class="btn btn-primary">Choose a gift</a>
+                            <a asp-controller="Votes" asp-action="Voting" asp-route-id="@vote.Id" asp-route-name="@vote.ReceiverName" class="btn btn-primary">Choose a gift</a>
                         </div>
 
                     </li>

@@ -126,7 +126,7 @@ namespace DAIS.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Voting(int id)
+        public async Task<IActionResult> Voting(int id, string name)
         {       
             var gifts = await this._votesRepository.GetAllGifts();
 
@@ -136,6 +136,8 @@ namespace DAIS.Controllers
                 LoggedUser = this.HttpContext.User.Identity.Name,
                 VoteId = id
             };
+
+            this.ViewBag.Name = name;
 
             return View(model);
         }
